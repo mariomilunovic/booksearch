@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* hidding alpine.js components on refresh */
+[x-cloak] { display: none !important; }
+
+
+/* adding custom shadow tags */
+@layer utilities {
+    @variants responsive {
+        .text-shadow {
+            text-shadow: 0 1px 4px rgba(0,0,0,0.10);
+        }
+
+        .text-shadow-sm {
+            text-shadow: 0 2px 2px rgba(0,0,0,0.11), 0 1px 4px rgba(0,0,0,0.4);
+        }
+
+        .text-shadow-md {
+            text-shadow: 0 4px 8px rgba(0,0,0,0.11), 0 1px 4px rgba(0,0,0,0.4);
+        }
+
+        .text-shadow-lg {
+            text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.6);
+        }
+
+        .text-shadow-none {
+            text-shadow: none;
+        }
+    }
+}
+
+
+#container
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 14fr 1fr;
+    grid-gap: 11px;
+    max-width: 95vw;
+    min-height: 10vh;
+    margin: 0 auto;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer"
+}
+
+header{
+    grid-area: header;
+}
+
+
+main{
+    grid-area: main;
+}
+
+footer{
+    grid-area: footer;
+}
+
+
+
+.card {
+    @apply flex rounded-md shadow-md
+}
+
+.input {
+    @apply p-2 leading-tight text-neutral-700 bg-gray-200 border-2 border-gray-200 rounded focus:outline-none focus:bg-white focus:border-purple-500;
+}
+
+.error {
+    @apply mb-3 px-1 text-sm font-bold text-red-500;
+}
+
+.label {
+    @apply block font-semibold text-neutral-700 mt-2;
+}
+
+
+
+/* Buttons */
+
+
+.btn-blue-small {
+    @apply py-1.5 px-3 text-sm font-medium text-center text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 rounded-md  my-1
+}
+
+.btn-red-small {
+    @apply py-1.5 px-3 text-sm font-medium text-center text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-400  rounded-md  my-1
+}
+
+.btn-yellow-small {
+    @apply py-1.5 px-3 text-sm font-medium text-center text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-400 rounded-md my-1
+}
+
+.btn-amber-small {
+    @apply py-1.5 px-3 text-sm font-medium text-center text-white bg-amber-600 hover:bg-amber-700 focus:ring-4 focus:ring-amber-500 rounded-md my-1
+}
+
+.btn-gray-small {
+    @apply py-1.5 px-3 text-sm font-medium text-center text-white bg-neutral-600 hover:bg-neutral-700 focus:ring-4 focus:ring-neutral-500 rounded-md my-1
+}
+
+.btn-gray-xs {
+    @apply py-1 px-3 text-sm font-medium text-center text-white bg-neutral-600 hover:bg-neutral-700 focus:ring-4 focus:ring-neutral-500 rounded-md my-1
+}
+
+.btn-amber-xs {
+    @apply py-1 px-3 text-sm font-medium text-center text-white bg-amber-600 hover:bg-amber-700 focus:ring-4 focus:ring-amber-500 rounded-md my-1
+}
+
+.btn-orange-xs {
+    @apply py-1 px-3 text-sm font-medium text-center text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-500 rounded-md my-1
+}
+
+.btn-red-xs {
+    @apply py-1 px-3 text-sm font-medium text-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-500 rounded-md my-1
+}
+
+.btn-blue-xs {
+    @apply py-1 px-3 text-sm font-medium text-center text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-500 rounded-md my-1
+}
+
+.btn-purple-xs {
+    @apply py-1 px-3 text-sm font-medium text-center text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-500 rounded-md my-1
+}
+
+.btn-green-small {
+    @apply py-1.5 px-3 text-sm font-medium text-center text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-500 rounded-md my-1
+}
+
+.btn-orange-small {
+    @apply py-1.5 px-3 text-sm font-medium text-center text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-500 rounded-md my-1
+}
+
+.btn-purple-small {
+    @apply py-1.5 px-3 text-sm font-medium text-center text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-500 rounded-md my-1
+}
+
+.btn-blue-medium {
+    @apply py-2 px-3 font-bold text-center drop-shadow-lg text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-400 rounded-md
+}
+
+.btn-red-medium {
+    @apply py-2 px-3 font-bold text-center drop-shadow-lg text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-400  rounded-md
+}
+
+.btn-yellow-medium {
+    @apply py-2 px-3 font-bold text-center drop-shadow-lg text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-400 rounded-md
+}
+
+.btn-green-medium {
+    @apply py-2 px-3 font-bold text-center drop-shadow-lg text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 rounded-md
+}
+
+.btn-neutral-medium {
+    @apply py-2 px-3 font-bold text-center drop-shadow-lg text-white bg-neutral-500 hover:bg-neutral-600 focus:ring-4 focus:ring-neutral-300 rounded-md
+}
