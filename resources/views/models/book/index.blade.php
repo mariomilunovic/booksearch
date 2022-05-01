@@ -8,7 +8,7 @@
 
     <x-title title="Prikaz svih knjiga"/>
 
-    <div>
+    <div class="pb-3">
         @foreach ($books as $book)
 
 
@@ -16,10 +16,9 @@
         <x-book :book="$book"/>
 
 
-
         @endforeach
 
-        {{$books->links('pagination::tailwind')}}
+        {{$books->links()}}
     </div>
 
 

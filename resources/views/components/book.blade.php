@@ -2,17 +2,16 @@
 
     <div class="flex items-center justify-between">
 
-        <div class="flex-col text-xl font-bold items-center text-shadow p-3">
+        <div class="flex-col text-md font-bold text-gray-600 items-center text-shadow p-2">
 
-            <div class="text-1xl font-bold text-gray-600">Title : {{$book->title}}</div>
+            <div class="">Naslov : {{$book->title}}</div>
 
-            <div class="text-1xl font-bold text-gray-600">Author : {{$book->author}}</div>
+            <div class="">Autor : {{$book->author}}</div>
 
-            <div class="text-1xl font-bold text-gray-600">Publisher : {{$book->publisher}}</div>
+            <div class="">Izdavač : {{$book->publisher}}</div>
 
-            <div class="text-1xl font-bold text-gray-600">Published : {{$book->published_at}}</div>
+            <div class="">Datum izdavanja : {{Carbon\Carbon::parse($book->published_at)->format('d.m.Y');}} ({{Carbon\Carbon::parse($book->published_at)->diffForHumans()}})</div>
         </div>
-
     </div>
 
 </div>

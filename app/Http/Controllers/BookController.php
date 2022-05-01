@@ -28,6 +28,11 @@ class BookController extends Controller
         }
     }
 
+    public function import()
+    {
+        return view('models.book.import');
+    }
+
     public function search(Request $request)
     {
         if( request()->is('api/*'))
@@ -40,6 +45,11 @@ class BookController extends Controller
             $books = Book::orderBy('updated_at','desc')->paginate(5);
             return ('blade');
         }
+    }
+
+    public function livewire_search()
+    {
+        return view('models.book.search');
     }
 
     /**
