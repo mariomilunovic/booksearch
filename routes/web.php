@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::get('logout',[LogoutController::class,'logout'])->name('logout.logout')->
 
 
 //BOOK CONTROLLER
-
+Route::get('/book',[BookController::class,'index'])->name('book.index')->middleware('check_roles:admin,member');
 
 //PAGE CONTROLLER
 Route::get('/',[PageController::class,'home'])->name('pages.home');
