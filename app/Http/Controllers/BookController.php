@@ -49,10 +49,7 @@ class BookController extends Controller
 
     public function api_search(Request $request)
     {
-
-
-        $books = Book::where('title','like','%'.$request->title.'%')->whereYear('published_at','>',date('Y')-$request->age)->orderBy('published_at','desc')->get();
-
+        $books = Book::where('title','ilike','%'.$request->title.'%')->whereYear('published_at','>',date('Y')-$request->age)->orderBy('published_at','desc')->get();
         return $books;
     }
 

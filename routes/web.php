@@ -18,14 +18,9 @@ use App\Http\Controllers\BookController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('pages.home');
-// });
 
 //TEST
 Route::get('/test',[PageController::class,'test'])->name('test.toast');
-
-
 
 //REGISTER CONTROLLER
 Route::get('register',[RegisterController::class,'form'])->name('register.form')->middleware('guest');
@@ -38,13 +33,11 @@ Route::post('login',[LoginController::class,'login'])->name('login.login')->midd
 //LOGOUT CONTROLLER
 Route::get('logout',[LogoutController::class,'logout'])->name('logout.logout')->middleware('check_roles:admin,member');
 
-
 //BOOK CONTROLLER
 Route::get('/book',[BookController::class,'index'])->name('book.index');
 Route::get('/book/search',[BookController::class,'livewire_search'])->name('book.livewire_search')->middleware('check_roles:admin,member');
 Route::get('/book/import',[BookController::class,'import'])->name('book.import')->middleware('check_roles:admin');
 Route::post('/book/upload',[BookController::class,'upload'])->name('book.upload')->middleware('check_roles:admin');
-
 
 //PAGE CONTROLLER
 Route::get('/',[PageController::class,'home'])->name('pages.home');

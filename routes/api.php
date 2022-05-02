@@ -19,22 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/book', [BookController::class,'index']);
+
+Route::prefix('v1')->group(function () {
+    Route::get('/book', [BookController::class,'index']);
+    Route::get('/book/search/{title}/{age}/', [BookController::class,'api_search']);
+    Route::get('/book/{book}', [BookController::class,'show']);
+});
 
 
-
-Route::get('/book/search/{title}/{age}/', [BookController::class,'api_search']);
-
-Route::get('/book/{book}', [BookController::class,'show']);
-
-// Route::middleware('check_roles:admin,member')->prefix('v1')->group(function(){
-
-//     Route::get('/book', [BookController::class,'index']);
-
-// });
-
-// Route::prefix('admin')->group(function () {
-//     Route::get('/users', function () {
-//         // Matches The "/admin/users" URL
-//     });
-// });
