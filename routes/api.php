@@ -21,14 +21,13 @@ use App\Http\Controllers\BookController;
 
 Route::middleware('auth:sanctum')->prefix('v1')->group(function(){
 
-    Route::get('/book', [BookController::class,'index']);
-
 });
 
 
 Route::prefix('v1')->group(function () {
 
-    Route::get('/book/search/{title}/{age}/', [BookController::class,'api_search']);
+    Route::get('/books', [BookController::class,'index']);
+    Route::get('/books/search/{title}/{age}/', [BookController::class,'api_search']);
     Route::get('/book/{book}', [BookController::class,'show']);
 
 });

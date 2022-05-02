@@ -21,7 +21,7 @@ class BookController extends Controller
         if( request()->is('api/*'))
         {
             $books = Book::orderBy('published_at','desc')->get();
-            return $books;
+            return BookResource::collection(Book::all());
         }
         else
         {
@@ -51,7 +51,7 @@ class BookController extends Controller
     public function api_search(Request $request)
     {
         $books = Book::where('title','like','%'.$request->title.'%')->whereYear('published_at','>',date('Y')-$request->age)->orderBy('published_at','desc')->get();
-        return $books;
+        return BookResource::collection($books);
     }
 
     public function livewire_search()
