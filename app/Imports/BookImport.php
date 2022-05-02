@@ -17,6 +17,7 @@ class BookImport implements ToModel,WithHeadingRow,WithUpserts
     */
     public function model(array $row)
     {
+        //dd($row);
         return new Book([
             'title' => $row['naziv_knjige'],
             'author' => $row['autor'],

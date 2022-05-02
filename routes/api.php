@@ -32,3 +32,9 @@ Route::get('/book/{book}', [BookController::class,'show']);
 //     Route::get('/book', [BookController::class,'index']);
 
 // });
+
+// Route::prefix('admin')->group(function () {
+//     Route::get('/users', function () {
+//         // Matches The "/admin/users" URL
+//     });
+// });
