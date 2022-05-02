@@ -27,11 +27,11 @@
 
 
 
-    <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript" src="{{ secure_asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/028d9002c0.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
     @livewireStyles
 
