@@ -20,6 +20,7 @@ class CheckRoles
         // Da li je neko ulogovan?
         if($request->user() === null)
         {
+            toast()->danger('Niste ulogovani')->push();
             return redirect('login')->with('error','Niste ulogovani');
 
         }
@@ -29,7 +30,8 @@ class CheckRoles
         {
             return $next($request);
         }
-        return redirect()->back()->with('error','Nemate dozvolu za pristup');
+        toast()->danger('Nemate dozvolu za pristup')->push();
+        return redirect()->back();
 
 
         return $next($request);

@@ -25,6 +25,8 @@
     <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script> --}}
 
+
+
     <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/028d9002c0.js" crossorigin="anonymous"></script>
 
@@ -37,7 +39,7 @@
 
 <body class="bg-neutral-400 antialiased z-0">
 
-    <div class="z-50 absolute right-0 top-0 md:right-10 md:top-20"><livewire:toasts/></div>
+    <div><livewire:toasts/></div>
 
     <section id="container" class="h-screen">
 

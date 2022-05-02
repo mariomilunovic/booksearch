@@ -1,15 +1,15 @@
 <div class="flex-col mb-3 p-2">
     <div>
 
-        <x-title title="Pretraga knjiga"/>
+        <x-title title="Pretraga knjiga  ({{$books->count()}})"/>
 
-        <div class="flex justify-between items-center pb-3">
-            
+        <div class="sm:flex justify-between items-center pb-3">
+
             {{--        SEARCH INPUT       --}}
 
             <input
             type="text"
-            class="w-1/3 input"
+            class="w-full md:w-1/3 input"
             name="query"
             placeholder="Unesite deo naslova knjige"
             wire:model.debounce.150ms="query"
@@ -19,7 +19,7 @@
 
             {{--        SEARCH MODE      --}}
 
-            <div class="flex justify-center pl-4 pb-2">
+            <div class="flex justify-start text-sm pb-2 pt-2 whitespace-nowrap">
                 <div> Starost :</div>
 
                 <div class="form-check form-check-inline pl-4">

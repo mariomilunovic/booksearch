@@ -40,9 +40,11 @@ Route::get('logout',[LogoutController::class,'logout'])->name('logout.logout')->
 
 
 //BOOK CONTROLLER
-Route::get('/book',[BookController::class,'index'])->name('book.index')->middleware('guest');
+Route::get('/book',[BookController::class,'index'])->name('book.index');
 Route::get('/book/livewire_search',[BookController::class,'livewire_search'])->name('book.livewire_search')->middleware('check_roles:admin,member');
 Route::get('/book/import',[BookController::class,'import'])->name('book.import')->middleware('check_roles:admin');
+Route::post('/book/upload',[BookController::class,'upload'])->name('book.upload')->middleware('check_roles:admin');
+
 
 //PAGE CONTROLLER
 Route::get('/',[PageController::class,'home'])->name('pages.home');

@@ -9,6 +9,7 @@
     <x-title title="Prikaz svih knjiga"/>
 
     <div class="pb-3">
+
         @foreach ($books as $book)
 
 
@@ -19,6 +20,10 @@
         @endforeach
 
         {{$books->links()}}
+
+        @if($books->count()==0)
+        <div class="error">Trenutno u bazi nema unetih knjiga</div>
+        @endif
     </div>
 
 

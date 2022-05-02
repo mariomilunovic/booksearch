@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Excel;
+use App\Imports\BookImport;
 
 class BookController extends Controller
 {
@@ -17,12 +19,12 @@ class BookController extends Controller
 
         if( request()->is('api/*'))
         {
-            $books = Book::orderBy('updated_at','desc')->get();
+            $books = Book::orderBy('published_at','desc')->get();
             return $books;
         }
         else
         {
-            $books = Book::orderBy('updated_at','desc')->paginate(5);
+            $books = Book::orderBy('published_at','desc')->paginate(5);
             return view ('models.book.index')
             ->with('books',$books);
         }
@@ -30,7 +32,19 @@ class BookController extends Controller
 
     public function import()
     {
+
         return view('models.book.import');
+    }
+
+    public function upload(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|max:255'
+        ]);
+
+        Excel::import(new BookImport,$request->file);
+        toast()->success('Uspešan unos knjiga u bazu')->push();
+        return redirect(route('book.index'));
     }
 
     public function search(Request $request)
