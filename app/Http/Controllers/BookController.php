@@ -6,6 +6,7 @@ use App\Models\Book;
 use Illuminate\Http\Request;
 use Excel;
 use App\Imports\BookImport;
+use App\Http\Resources\BookResource;
 
 class BookController extends Controller
 {
@@ -49,7 +50,7 @@ class BookController extends Controller
 
     public function api_search(Request $request)
     {
-        $books = Book::where('title','ilike','%'.$request->title.'%')->whereYear('published_at','>',date('Y')-$request->age)->orderBy('published_at','desc')->get();
+        $books = Book::where('title','like','%'.$request->title.'%')->whereYear('published_at','>',date('Y')-$request->age)->orderBy('published_at','desc')->get();
         return $books;
     }
 
@@ -89,13 +90,12 @@ class BookController extends Controller
     {
         if( request()->is('api/*'))
         {
-
-            return $book;
+            return new BookResource($book);
         }
         else
         {
-            $books = Book::orderBy('updated_at','desc')->paginate(5);
-            return ('blade');
+            return view('models.book.show')
+            ->with('book',$book);
         }
     }
 

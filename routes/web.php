@@ -34,10 +34,12 @@ Route::post('login',[LoginController::class,'login'])->name('login.login')->midd
 Route::get('logout',[LogoutController::class,'logout'])->name('logout.logout')->middleware('check_roles:admin,member');
 
 //BOOK CONTROLLER
-Route::get('/book',[BookController::class,'index'])->name('book.index');
-Route::get('/book/search',[BookController::class,'livewire_search'])->name('book.livewire_search')->middleware('check_roles:admin,member');
-Route::get('/book/import',[BookController::class,'import'])->name('book.import')->middleware('check_roles:admin');
-Route::post('/book/upload',[BookController::class,'upload'])->name('book.upload')->middleware('check_roles:admin');
+Route::get('/books',[BookController::class,'index'])->name('book.index');
+Route::get('/book/{book}',[BookController::class,'show'])->name('book.show');
+
+Route::get('/books/search',[BookController::class,'livewire_search'])->name('book.livewire_search')->middleware('check_roles:admin,member');
+Route::get('/books/import',[BookController::class,'import'])->name('book.import')->middleware('check_roles:admin');
+Route::post('/books/upload',[BookController::class,'upload'])->name('book.upload')->middleware('check_roles:admin');
 
 //PAGE CONTROLLER
 Route::get('/',[PageController::class,'home'])->name('pages.home');

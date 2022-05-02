@@ -9,7 +9,7 @@
     <x-title title="Unos knjiga"/>
 
     <div class="flex justify-center pt-5">
-        <div class="card bg-neutral-400 p-3 mb-3 w-full sm:w-1/4">
+        <div class="card bg-neutral-400 p-3 mb-3 w-full sm:w-1/2">
             <form action="{{route('book.upload')}}" method="post" enctype="multipart/form-data" class="w-full">
 
                 @csrf

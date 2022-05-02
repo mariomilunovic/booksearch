@@ -1,16 +1,24 @@
-{{-- <div class="flex w-full items-center justify-between">
-
- <div class="mx-3 text-white">BOOK SEARCH</div>
-
-</div> --}}
 
 <div class="flex w-full items-center justify-between">
 
+
     {{-- left side --}}
-    <div id="Logo" class="my-2 mx-4 justify-content-center">
-        <a class="text-white text-4xl font-bold text-shadow-md" href="{{ auth()->user()!=null ? Route('pages.dashboard') : Route('pages.home') }}">
-            BOOK SEARCH
-        </a>
+
+    <div id="Logo" class="flex my-2 mx-4 justify-content-center items-center justify-between">
+        <div>
+            <a class="text-white text-4xl font-bold text-shadow-md whitespace-nowrap mr-4" href="{{ auth()->user()!=null ? Route('pages.dashboard') : Route('pages.home') }}">
+                BOOK SEARCH
+            </a>
+        </div>
+        <div class="flex">
+            <a href="{{route('book.index')}}" class="block w-full ml-4 btn-green-small whitespace-nowrap">Prikaz svih knjiga</a>
+            @auth
+            <a href="{{route('book.livewire_search')}}" class="block w-full ml-4 btn-green-small whitespace-nowrap">Pretraga knjiga</a>
+            <a href="{{route('book.import')}}" class="block w-full ml-4 whitespace-nowrap {{ auth()->user()->hasRole('admin') == true ? "btn-red-small":"btn-neutral-small" }}">Unos knjiga</a>
+            @endauth
+        </div>
+
+
     </div>
 
     {{-- right side --}}
