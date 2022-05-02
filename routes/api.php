@@ -23,7 +23,7 @@ Route::get('/book', [BookController::class,'index']);
 
 
 
-Route::get('/book/search/{searchString}/{searchMode}/', [BookController::class,'search']);
+Route::get('/book/search/{title}/{age}/', [BookController::class,'api_search']);
 
 Route::get('/book/{book}', [BookController::class,'show']);
 
