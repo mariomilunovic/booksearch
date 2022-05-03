@@ -130,6 +130,9 @@ class BookController extends Controller
     */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        toast()->success('Knjiga je obrisana')->push();
+        return redirect()->back();
+        
     }
 }

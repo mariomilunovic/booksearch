@@ -37,6 +37,8 @@ Route::get('logout',[LogoutController::class,'logout'])->name('logout.logout')->
 Route::get('/books',[BookController::class,'index'])->name('book.index');
 Route::get('/book/{book}',[BookController::class,'show'])->name('book.show');
 
+Route::get('/books/{book}/delete',[BookController::class,'destroy'])->name('book.destroy')->middleware('check_roles:admin');
+
 Route::get('/books/search',[BookController::class,'livewire_search'])->name('book.livewire_search')->middleware('check_roles:admin,member');
 Route::get('/books/import',[BookController::class,'import'])->name('book.import')->middleware('check_roles:admin');
 Route::post('/books/upload',[BookController::class,'upload'])->name('book.upload')->middleware('check_roles:admin');
