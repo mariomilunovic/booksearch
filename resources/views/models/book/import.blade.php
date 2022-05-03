@@ -2,9 +2,8 @@
 
 @section('content')
 
-
 <div class="flex-col mb-3 pb-3 w-full">
-
+    
 
     <x-title title="Unos knjiga"/>
 
@@ -27,8 +26,6 @@
             </form>
         </div>
     </div>
-
-
 
 </div>
 

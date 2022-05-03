@@ -10,6 +10,6 @@ class LogoutController extends Controller
     {
         auth()->logout();
         toast()->success('Uspešna odjava')->push();
-        return redirect(route('pages.home'));
+        return redirect(route('book.index'));
     }
 }

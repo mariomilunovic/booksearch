@@ -6,7 +6,7 @@
 
     <div id="Logo" class="flex my-2 mx-4 justify-content-center items-center justify-between">
         <div>
-            <a class="text-white text-4xl font-bold text-shadow-md whitespace-nowrap mr-4" href="{{ auth()->user()!=null ? Route('pages.dashboard') : Route('pages.home') }}">
+            <a class="text-white text-4xl font-bold text-shadow-md whitespace-nowrap mr-4" href="{{ auth()->user()!=null ? Route('book.livewire_search') : Route('book.index') }}">
                 BOOK SEARCH
             </a>
         </div>

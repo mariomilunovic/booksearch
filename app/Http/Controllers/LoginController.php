@@ -32,6 +32,6 @@ class LoginController extends Controller
             toast()->success('Uspešna prijava')->push();
         }
 
-        return redirect(route('pages.dashboard'));
+        return redirect(route('book.livewire_search'));
     }
 }

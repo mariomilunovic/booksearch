@@ -37,12 +37,11 @@ class RegisterController extends Controller
         $newUser->roles()->attach($roleMember);
 
 
-
         if($newUser)
         {
             auth()->attempt($request->only('email','password'));
             toast()->success('Uspešna registracija')->push();
-            return redirect(route('pages.dashboard'));
+            return redirect(route('book.livewire_search'));
         }
         else
         {
